@@ -53,6 +53,7 @@ public class Main {
             System.out.println("1. CRM");
             System.out.println("2. Ventas");
             System.out.println("3. Compras");
+            System.out.println("4. Fabricación");
             System.out.println("0. Salir");
             opcion = leerInt(scanner, "> ");
             ejecutar(usuario, contraseña, url, opcion);
@@ -79,6 +80,20 @@ public class Main {
                     compra.cargarCompra(usuario, contraseña, url);
                 }
             }
+                case 4 -> {
+    if (usuario.equals("deca_fabricacion")
+            || usuario.equals("deca_admin")) {
+
+        Fabricacion fabricacion =
+                new Fabricacion(usuario, contraseña, url);
+
+        fabricacion.cargarFabricacion(usuario, contraseña, url);
+
+    } else {
+        System.out.println(
+                "Error: No tienes permisos para Fabricación.");
+    }
+}
             case 0 -> System.exit(0);
             default -> System.out.println("Error: Opción introducida incorrecta");
         }
